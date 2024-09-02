@@ -4,30 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>3D Printed Item - Details</title>
+    <link rel="icon" href="favicon.png">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <a href="index.html"><img src="logo.png" alt="Logo" class="logo"></a>
-        <input type="text" placeholder="Search" class="search-bar">
-        <nav>
-            <a href="items.html">Browse</a>
-            <a href="new.html">Sell</a>
-            <a href="#">Sign Up</a>
-            <a href="#">Login</a>
-        </nav>
+        <div class="header-left">
+            <a href="index.html"><img src="logo.png" alt="Logo" class="logo"></a>
+        </div>
+        <div class="header-center">
+            <input type="text" class="search-bar" placeholder="Search">
+        </div>
+        <div class="header-right">
+            <nav>
+                <a href="items.html">Browse</a>
+                <a href="new.html">Sell</a>
+                <a href="#">Sign Up</a>
+                <a href="#">Login</a>
+            </nav>
+        </div>
     </header>
 
     <main>
-        <h1>Item Info</h1>
-        <div class="item-info">
-            <img src="product1.webp" alt="Item 1">
-            <div class="info2">
-                <p>Condition: New</p>
-                <p>Price: $19.99 | 0 offers</p>
-                <p>Seller: Issam Alzouby</p>
-                <button>Edit</button>
-                <button>Delete</button>
+        <div class="item-container">
+            <img src="product1.webp" alt="Item 1" class="item-image">
+            <div class="item-info">
+                <h1>Cable Roller</h1>
+                <p><strong>Condition:</strong> New</p>
+                <p><strong>Price:</strong> $9.99 | 0 offers</p>
+                <p><strong>Seller:</strong> Issam Alzouby</p>
+                <p>PLA Cable Roller, Stay Organized, Stay Creative!</p>
+                <div class="button-container">
+                    <button>Edit</button>
+                    <button>Delete</button>
+                </div>
             </div>
         </div>
     </main>

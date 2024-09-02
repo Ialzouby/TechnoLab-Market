@@ -4,59 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>3D Printed Items - Browse</title>
+    <link rel="icon" href="favicon.png">
     <link rel="stylesheet" href="styles.css"> <!-- Links to the shared stylesheet -->
 </head>
 <body>
     <header>
-        <a href="index.html"><img src="logo.png" alt="Logo" class="logo"></a> <!-- Main logo, links back to home -->
-        <input type="text" placeholder="Search" class="search-bar"> <!-- Search bar -->
-        <nav>
-            <a href="items.html">Browse</a> <!-- Link to the browsing page -->
-            <a href="new.html">Sell</a> <!-- Link to the sell page -->
-            <a href="#">Sign Up</a> <!-- Placeholder for signup, no link provided -->
-            <a href="#">Login</a> <!-- Placeholder for login, no link provided -->
-        </nav>
+        <div class="header-left">
+            <a href="index.html"><img src="logo.png" alt="Logo" class="logo"></a>
+        </div>
+        <div class="header-center">
+            <input type="text" class="search-bar" placeholder="Search">
+        </div>
+        <div class="header-right">
+            <nav>
+                <a href="items.html">Browse</a>
+                <a href="new.html">Sell</a>
+                <a href="#">Sign Up</a>
+                <a href="#">Login</a>
+            </nav>
+        </div>
     </header>
 
     <main>
         <h1>Browse Our 3D Printed Items</h1>
-        <div class="item-container">
-            <div class="item">
+        <div class="items-container">
+            <a href="item.html" class="item">
                 <img src="product1.webp" alt="Item 1">
                 <p>Cable Roll - New</p>
                 <p>$19.99 | 0 offers</p>
-                <a href="item.html">View Info</a>
-            </div>
-            <div class="item">
+            </a>
+            <a href="item.html" class="item">
                 <img src="product2.png" alt="Item 2">
                 <p>Mini Octopus - Good</p>
                 <p>$14.99 | 2 offers</p>
-                <a href="item.html">View Info</a>
-            </div>
-            <div class="item">
+            </a>
+            <a href="item.html" class="item">
                 <img src="product3.png" alt="Item 1">
                 <p>Hex Drawers - New</p>
                 <p>$19.99 | 0 offers</p>
-                <a href="item.html">View Info</a>
-            </div>
-            <div class="item">
+            </a>
+            <a href="item.html" class="item">
                 <img src="product4.png" alt="Item 2">
                 <p>Baby Groot - Good</p>
                 <p>$14.99 | 2 offers</p>
-                <a href="item.html">View Info</a>
-            </div>
-            <div class="item">
+            </a>
+            <a href="item.html" class="item">
                 <img src="product5.png" alt="Item 1">
                 <p>Low Poly Planter - New</p>
                 <p>$19.99 | 0 offers</p>
-                <a href="item.html">View Info</a>
-            </div>
-            <div class="item">
+            </a>
+            <a href="item.html" class="item">
                 <img src="product6.png" alt="Item 2">
                 <p>PokeBall - Good</p>
                 <p>$14.99 | 2 offers</p>
-                <a href="item.html">View Info</a>
-            </div>
+            </a>
             <!-- Add more items as needed -->
         </div>
     </main>

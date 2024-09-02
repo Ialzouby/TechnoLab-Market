@@ -4,23 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sell a New 3D Printed Item</title>
+    <link rel="icon" href="favicon.png">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <a href="index.html"><img src="logo.png" alt="Logo" class="logo"></a>
-        <input type="text" placeholder="Search" class="search-bar">
-        <nav>
-            <a href="items.html">Browse</a>
-            <a href="new.html">Sell</a>
-            <a href="#">Sign Up</a>
-            <a href="#">Login</a>
-        </nav>
+        <div class="header-left">
+            <a href="index.html"><img src="logo.png" alt="Logo" class="logo"></a>
+        </div>
+        <div class="header-center">
+            <input type="text" class="search-bar" placeholder="Search">
+        </div>
+        <div class="header-right">
+            <nav>
+                <a href="items.html">Browse</a>
+                <a href="new.html">Sell</a>
+                <a href="#">Sign Up</a>
+                <a href="#">Login</a>
+            </nav>
+        </div>
     </header>
 
     <main>
         <div class="form-container">
             <div class="form-intro">
+                <img src="logo.png" alt="Item 1" class="item-image">
                 <h2>Sell Your Stuff</h2>
                 <p>Turn your 3D printed items into cash. It's quick and easy!</p>
             </div>
@@ -28,6 +36,7 @@
                 <form action="#" method="post">
                     <label for="condition">Condition:</label>
                     <select id="condition" name="condition" required>
+                        <option value="" disabled selected>Select a condition</option>
                         <option value="new">New</option>
                         <option value="like-new">Like New</option>
                         <option value="good">Good</option>
@@ -35,19 +44,29 @@
                         <option value="poor">Poor</option>
                     </select>
                     
+                    
                     <label for="title">Title:</label>
                     <input type="text" id="title" name="title" required>
                     
                     <label for="price">Price:</label>
                     <input type="number" id="price" name="price" required>
                     
-                    <label for="info">Info:</label>
+                    <label for="info">Details:</label>
                     <textarea id="info" name="info" required></textarea>
                     
                     <label for="image">Image:</label>
                     <input type="file" id="image" name="image" required>
+                                        
+                    <button class="button-home" type="submit">
+                        Submit Item
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24px" height="24px">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17l-1-1 4-4H7v-2h9l-4-4 1-1 6 6-6 6z"/>
+                            </svg>
+                        </span>
+                    </button>
                     
-                    <button type="submit">Submit</button>
+                    
                 </form>
             </div>
         </div>
