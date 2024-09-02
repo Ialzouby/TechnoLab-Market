@@ -45,6 +45,13 @@ header {
     vertical-align: middle;
 }
 
+.logo:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+    border-radius: 6px; 
+    vertical-align: middle;
+}
+
 .search-bar {
     padding: 5px;
     border-radius: 5px;
@@ -210,10 +217,42 @@ main {
 
 .item p {
     color: #000; 
+    margin: 5px; 
+}
+.item p {
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 15px; /* Adjust margin as needed */
+    padding: 0;
+}
+
+.item h2{ 
+    text-align: left; 
+    margin-left: 15px; 
+    margin-bottom: 5px; 
+    color: #0D47A1; 
+    font-size: 22px; 
+}
+
+.item h3{ 
+    margin-right: 165px; 
+    color: #000000; 
+    font-size: 17px; 
+    margin-top: 5px; 
+    margin-bottom: 3px; 
+    font-weight: normal
+}
+
+.item hr {
+    border: none; /* Remove default border */
+    border-top: 1px solid #ccc; /* Custom border style */
+    margin: 10px 0; /* Adjust margin as needed */
 }
 
 .item:hover {
     background-color: #f0f0f0;
+    transform: scale(1.05); 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
 }
 
 .item img, .item-info img {
