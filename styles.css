@@ -106,7 +106,24 @@ header {
     flex: 2;
     display: flex;
     justify-content: center;
+    align-items: center; 
 }
+
+.search-bar {
+    width: 100%; 
+    max-width: 400px; 
+    padding: 10px 20px;
+    border: 2px solid #ccc;
+    border-radius: 50px !important; /* Figure out whats conflicting with this */
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.search-bar:focus {
+    border-color: #007BFF;
+}
+
 
 .header-right {
     flex: 1;
@@ -128,13 +145,8 @@ header {
     vertical-align: middle;
 }
 
-.search-bar {
-    padding: 5px;
-    border-radius: 5px;
-    border: 1px solid #0D47A1;
-    width: 100%;
-    max-width: 300px; 
-}
+
+
 
 nav {
     display: flex;
