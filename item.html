@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>3D Printed Item - Details</title>
-    <link rel="icon" href="favicon.png">
+    <link rel="icon" href="images/favicon.png">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
         <div class="header-left">
-            <a href="index.html"><img src="logo.png" alt="Logo" class="logo"></a>
+            <a href="index.html"><img src="images/logo.png" alt="Logo" class="logo"></a>
         </div>
         <div class="header-center">
             <input type="text" class="search-bar" placeholder="Search">
@@ -27,7 +27,7 @@
 
     <main>
         <div class="item-container">
-            <img src="product1.webp" alt="Item 1" class="item-image">
+            <img src="images/product1.webp" alt="Item 1" class="item-image">
             <div class="item-info">
                 <h1>Cable Roller</h1>
                 <p><strong>Condition:</strong> New</p>
@@ -35,8 +35,22 @@
                 <p><strong>Seller:</strong> Issam Alzouby</p>
                 <p>PLA Cable Roller, Stay Organized, Stay Creative!</p>
                 <div class="button-container">
-                    <button>Edit</button>
-                    <button>Delete</button>
+                    <button class="button-home" onclick="window.location.href='#'">
+                        Edit
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24px" height="24px">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17l-1-1 4-4H7v-2h9l-4-4 1-1 6 6-6 6z"/>
+                            </svg>
+                        </span>
+                    </button>
+                    <button class="button-home" onclick="window.location.href='#'">
+                       Delete
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24px" height="24px">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17l-1-1 4-4H7v-2h9l-4-4 1-1 6 6-6 6z"/>
+                            </svg>
+                        </span>
+                    </button>
                 </div>
             </div>
         </div>
@@ -45,8 +59,8 @@
     <footer>
         <p>&copy; 2024 TechnoLab Marketplace</p>
         <div class="social-icons">
-            <a href="#"><img src="IG.png" alt="Instagram"></a>
-            <a href="#"><img src="FB.png" alt="Facebook"></a>
+            <a href="#"><img src="images/IG.png" alt="Instagram"></a>
+            <a href="#"><img src="images/FB.png" alt="Facebook"></a>
         </div>
     </footer>
 </body>
