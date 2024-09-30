@@ -1,0 +1,31 @@
+<%- include('partials/header') %>
+
+<main>
+    <h1>Edit Item</h1>
+    <form action="/items/edit/<%= item.id %>" method="POST" enctype="multipart/form-data">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" value="<%= item.title %>" required>
+
+        <label for="seller">Seller:</label>
+        <input type="text" id="seller" name="seller" value="<%= item.seller %>" required>
+
+        <label for="condition">Condition:</label>
+        <select id="condition" name="condition" required>
+            <option value="New" <%= item.condition === 'New' ? 'selected' : '' %>>New</option>
+            <option value="Used" <%= item.condition === 'Used' ? 'selected' : '' %>>Used</option>
+        </select>
+
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price" step="0.01" value="<%= item.price %>" required>
+
+        <label for="details">Details:</label>
+        <textarea id="details" name="details" required><%= item.details %></textarea>
+
+        <label for="image">Image:</label>
+        <input type="file" id="image" name="image">
+
+        <button type="submit">Update Item</button>
+    </form>
+</main>
+
+<%- include('partials/footer') %>

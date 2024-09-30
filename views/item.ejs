@@ -1,0 +1,39 @@
+<%- include('partials/header') %>
+
+<main>
+    <div class="item-container">
+        <img src="<%= item.image %>" alt="<%= item.title %>" class="item-image"> 
+        <div class="item-info">
+            <h1><%= item.title %></h1> <!-- Dynamic item title -->
+            <p><strong>Condition:</strong> <%= item.condition %></p> <!-- Dynamic condition -->
+            <p><strong>Price:</strong> $<%= item.price.toFixed(2) %> | 0 offers</p> <!-- Dynamic price -->
+            <p><strong>Seller:</strong> <%= item.seller %></p> <!-- Dynamic seller -->
+            <p><%= item.details %></p> <!-- Dynamic item details -->
+            <div class="button-container">
+                <!-- Edit button, linking to the edit page for this item -->
+                <button class="button-home" onclick="window.location.href='/items/edit/<%= item.id %>'">
+                    Edit
+                    <span class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24px" height="24px">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17l-1-1 4-4H7v-2h9l-4-4 1-1 6 6-6 6z"/>
+                        </svg>
+                    </span>
+                </button>
+                <!-- Delete button, with a form to handle deletion of this item -->
+                <form action="/items/delete/<%= item.id %>" method="POST" style="display:inline;">
+                    <button class="button-home" type="submit">
+                        Delete
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24px" height="24px">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17l-1-1 4-4H7v-2h9l-4-4 1-1 6 6-6 6z"/>
+                            </svg>
+                        </span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+
+<%- include('partials/footer') %>
+
