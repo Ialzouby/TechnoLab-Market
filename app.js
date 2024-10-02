@@ -1,4 +1,3 @@
-// app.js
 const express = require('express');
 const app = express();
 const itemRoutes = require('./routes/itemRoutes');
@@ -6,6 +5,11 @@ const itemRoutes = require('./routes/itemRoutes');
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
+
+app.use((req, res, next) => {
+  res.locals.searchTerm = req.query.q || ''; 
+  next();
+});
 
 app.use('/items', itemRoutes);
 
@@ -19,3 +23,4 @@ app.use((req, res) => {
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
+

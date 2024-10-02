@@ -1,13 +1,10 @@
-// controllers/itemController.js
-
-// controllers/itemController.js
 const path = require('path');
 const multer = require('multer');
+const items = require('../models/itemModel');
 
-// Configure multer storage
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, 'public/images'); // Ensure this folder exists
+    cb(null, 'public/images');
   },
   filename: (req, file, cb) => {
     cb(null, `${Date.now()}-${file.originalname}`);
@@ -15,16 +12,7 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage });
-
-
-
-
-const items = require('../models/itemModel');
-
-exports.getAllItems = (req, res) => {
-  const activeItems = items.filter(item => item.active);
-  res.render('items', { items: activeItems });
-};
+module.exports.upload = upload;
 
 exports.getItemDetails = (req, res) => {
   const item = items.find(item => item.id === parseInt(req.params.id));
@@ -54,7 +42,6 @@ exports.createItem = (req, res) => {
   res.redirect('/items');
 };
 
-
 exports.renderEditItemForm = (req, res) => {
   const item = items.find(item => item.id === parseInt(req.params.id));
   if (!item) {
@@ -68,19 +55,15 @@ exports.updateItem = (req, res) => {
   if (!item) {
     return res.render('error', { message: 'Item not found' });
   }
-
   item.title = req.body.title;
   item.condition = req.body.condition;
   item.price = parseFloat(req.body.price);
   item.details = req.body.details;
-  
   if (req.file) {
     item.image = `/images/${req.file.filename}`;
   }
-
   res.redirect('/items');
 };
-
 
 exports.deleteItem = (req, res) => {
   const index = items.findIndex(item => item.id === parseInt(req.params.id));
@@ -88,4 +71,45 @@ exports.deleteItem = (req, res) => {
     items.splice(index, 1);
   }
   res.redirect('/items');
+};
+
+
+
+exports.getAllItems = (req, res) => {
+  try {
+    const activeItems = items.filter(item => item.active);
+    activeItems.sort((a, b) => a.price - b.price);
+    const itemsWithFixedOffers = activeItems.map(item => ({
+      ...item,
+      offersCount: 2 
+    }));
+    res.render('items', { items: itemsWithFixedOffers });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Internal Server Error');
+  }
+};
+
+
+exports.searchItems = (req, res) => {
+  try {
+    const searchTerm = req.query.q; 
+    console.log("Search Term:", searchTerm);
+    if (!searchTerm) {
+      return res.redirect('/items');
+    }
+    const filteredItems = items.filter(item =>
+      item.active &&
+      (item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+       item.details.toLowerCase().includes(searchTerm.toLowerCase()))
+    );
+    console.log("Filtered Items:", filteredItems);
+    if (filteredItems.length === 0) {
+      return res.render('error', { message: 'Item not found' });
+    }
+    res.render('items', { items: filteredItems, searchTerm });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Internal Server Error');
+  }
 };

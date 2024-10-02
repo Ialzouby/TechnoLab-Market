@@ -3,16 +3,25 @@
 <main>
     <h1>Browse Our 3D Printed Items</h1>
     <div class="items-container">
-        <% items.forEach(item => { %>
-            <a href="/items/<%= item.id %>" class="item"> <!-- Link to the item's detail page -->
-                <img src="<%= item.image %>" alt="<%= item.title %>">
-                <h2><%= item.title %></h2>
-                <h3><%= item.condition %></h3>
-                <hr>
-                <p><span>$<%= item.price.toFixed(2) %></span> <span>2 offers</span></p> <!-- Adjust '2 offers' to be dynamic if needed -->
-            </a>
-        <% }) %>
+        <% if (items && items.length > 0) { %>
+            <% items.forEach(item => { %>
+                <a href="/items/<%= item.id %>" class="item"> 
+                    <img src="<%= item.image %>" alt="<%= item.title %>">
+                    <h2><%= item.title %></h2>
+                    <h3><%= item.condition %></h3>
+                    <hr>
+                    <p>
+                        <span>$<%= item.price.toFixed(2) %></span> 
+                        <span><%= item.offersCount || 2 %> offers</span> 
+                    </p>
+                </a>
+            <% }) %>
+        <% } else { %>
+            <p>No items found matching "<%= searchTerm %>".</p>
+        <% } %>
     </div>
 </main>
+
+
 
 <%- include('partials/footer') %>

@@ -4,13 +4,13 @@
     <div class="item-container">
         <img src="<%= item.image %>" alt="<%= item.title %>" class="item-image"> 
         <div class="item-info">
-            <h1><%= item.title %></h1> <!-- Dynamic item title -->
-            <p><strong>Condition:</strong> <%= item.condition %></p> <!-- Dynamic condition -->
-            <p><strong>Price:</strong> $<%= item.price.toFixed(2) %> | 0 offers</p> <!-- Dynamic price -->
-            <p><strong>Seller:</strong> <%= item.seller %></p> <!-- Dynamic seller -->
-            <p><%= item.details %></p> <!-- Dynamic item details -->
+            <h1><%= item.title %></h1> 
+            <p><strong>Condition:</strong> <%= item.condition %></p> 
+            <p><strong>Price:</strong> $<%= item.price.toFixed(2) %> | 0 offers</p> 
+            <p><strong>Seller:</strong> <%= item.seller %></p> 
+            <p><%= item.details %></p> 
             <div class="button-container">
-                <!-- Edit button, linking to the edit page for this item -->
+        
                 <button class="button-home" onclick="window.location.href='/items/edit/<%= item.id %>'">
                     Edit
                     <span class="icon">
@@ -19,8 +19,8 @@
                         </svg>
                     </span>
                 </button>
-                <!-- Delete button, with a form to handle deletion of this item -->
-                <form action="/items/delete/<%= item.id %>" method="POST" style="display:inline;">
+                <!-- Delete button -->
+                <form class="item-delete-form" action="/items/delete/<%= item.id %>" method="POST" style="display:inline;">
                     <button class="button-home" type="submit">
                         Delete
                         <span class="icon">
