@@ -1,5 +1,5 @@
 {
-  "name": "alzoubyissamproject2",
+  "name": "issamalzoubyproject2",
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
@@ -11,6 +11,7 @@
   "dependencies": {
     "ejs": "^3.1.10",
     "express": "^4.21.0",
+    "mongoose": "^8.7.1",
     "multer": "^1.4.5-lts.1"
   },
   "description": ""
