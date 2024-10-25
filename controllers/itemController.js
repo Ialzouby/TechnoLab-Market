@@ -51,7 +51,7 @@ exports.createItem = async (req, res) => {
       active: true
     };
     await Item.create(newItem); 
-    res.redirect('/items/${newItem._id}');
+    res.redirect('/items');
   } catch (error) {
     if (error.name === 'ValidationError') {
       return res.status(400).render('error', { message: `Item validation failed: ${error.message}` });
