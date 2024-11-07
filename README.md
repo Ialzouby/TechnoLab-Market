@@ -7,7 +7,9 @@
 <h1>TechnoLab Market</h1>
 
 <p align="center">
-    <img src="https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif" alt="Welcome GIF" class="gif">
+    <img src="[https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif](https://media.giphy.com/media/2C6v4QD5d3YOO4YhID/giphy.gif?cid=790b7611rff6lh11cp2z9sgdww5hkce4fidb09zaxbow75ac&ep=v1_gifs_search&rid=giphy.gif&ct=g)" alt="Welcome GIF" class="gif">
+
+    
 </p>
 
 <p align="center">Welcome to <strong>TechnoLab Market</strong>! This web application serves as a marketplace platform, enabling users to browse, search, and purchase a variety of products. 🛍️</p>
