@@ -6,8 +6,8 @@
 
 <h1>TechnoLab Market</h1>
 
-<p align="center">
-    <img src="[https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif](https://media.giphy.com/media/2C6v4QD5d3YOO4YhID/giphy.gif?cid=790b7611rff6lh11cp2z9sgdww5hkce4fidb09zaxbow75ac&ep=v1_gifs_search&rid=giphy.gif&ct=g)" alt="Welcome GIF" class="gif">
+![Welcome GIF](https://media.giphy.com/media/2C6v4QD5d3YOO4YhID/giphy.gif?cid=790b7611rff6lh11cp2z9sgdww5hkce4fidb09zaxbow75ac&ep=v1_gifs_search&rid=giphy.gif&ct=g)
+
 
     
 </p>
