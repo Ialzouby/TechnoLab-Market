@@ -1,33 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>TechnoLab Market</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-        }
-        h1, h2, h3 {
-            text-align: center;
-        }
-        .center {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .tech-stack img {
-            width: 32px;
-            height: 32px;
-            margin: 0 5px;
-        }
-        .gif {
-            width: 100%;
-            max-width: 600px;
-            display: block;
-            margin: 20px auto;
-        }
-    </style>
+
 </head>
 <body>
 
