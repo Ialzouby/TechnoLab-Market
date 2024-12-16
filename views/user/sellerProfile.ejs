@@ -1,0 +1,75 @@
+<%- include('../partials/header') %>
+
+<div class="page-wrapper">
+    <div class="content-block">
+        <!-- Profile Header -->
+        <div class="profile-header">
+            <h1><%= seller.firstName %> <%= seller.lastName %>'s Profile</h1>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Left Section: Listed Items -->
+            <div class="left-section">
+                <h2>Listed Items</h2>
+                <ul class="list-container">
+                    <% items.forEach(item => { %>
+                        <li class="list-item">
+                            <span><a href="/items/<%= item._id %>"><%= item.title %></a></span>
+                            <span>$<%= item.price %></span>
+                        </li>
+                    <% }) %>
+                </ul>
+            </div>
+
+            <!-- Right Section: Reviews and Add a Review -->
+            <div class="right-section">
+                <!-- Add a Review -->
+                <div class="add-review-block">
+                    <h2>Add a Review</h2>
+                    <form method="POST" action="/users/<%= seller._id %>/reviews" class="review-form">
+                        <!-- Star Rating -->
+                        <div class="star-rating">
+                            <input type="radio" name="rating" id="star5" value="5">
+                            <label for="star5">★</label>
+                            <input type="radio" name="rating" id="star4" value="4">
+                            <label for="star4">★</label>
+                            <input type="radio" name="rating" id="star3" value="3">
+                            <label for="star3">★</label>
+                            <input type="radio" name="rating" id="star2" value="2">
+                            <label for="star2">★</label>
+                            <input type="radio" name="rating" id="star1" value="1">
+                            <label for="star1">★</label>
+                        </div>
+
+                        <!-- Review Comment -->
+                        <label for="comment">Comment:</label>
+                        <textarea name="comment" id="comment" required></textarea>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="submit-button">Submit Review</button>
+                    </form>
+                </div>
+
+                <!-- Reviews -->
+                <div class="reviews-block">
+                    <h2>Reviews</h2>
+                    <ul class="list-container">
+                        <% reviews.forEach(review => { %>
+                            <li class="list-item">
+                                <span><strong><%= review.reviewer.firstName %> <%= review.reviewer.lastName %>:</strong></span>
+                                <span><%= review.rating %>/5</span>
+                                <p><%= review.comment %></p>
+                            </li>
+                        <% }) %>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<%- include('../partials/footer') %>

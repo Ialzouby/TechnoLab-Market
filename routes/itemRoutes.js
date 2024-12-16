@@ -3,25 +3,35 @@ const router = express.Router();
 const itemController = require('../controllers/itemController');
 const upload = itemController.upload;
 const path = require('path');
+const auth = require('../middleware/auth');
+const validator = require('../middleware/validator');
+const offerRoutes = require('./offerRoutes');
 
-// routes
+
 router.get('/', itemController.getAllItems);
+
+
+router.use('/:id/offers', offerRoutes);
+
+
 router.get('/search', itemController.searchItems);
-router.get('/item/:id', itemController.getItemDetails);
-router.get('/new', itemController.renderNewItemForm);
-router.post('/new', upload.single('image'), itemController.createItem); 
-router.get('/edit/:id', itemController.renderEditItemForm);
-router.post('/edit/:id', upload.single('image'), itemController.updateItem);
-router.post('/delete/:id', itemController.deleteItem);
+
+// Logged-in-only routes
+router.get('/new', auth.isLoggedIn, itemController.renderNewItemForm);
+router.post('/new', auth.isLoggedIn, upload.single('image'), validator.validateNewItem, itemController.createItem);
+router.post('/items', auth.isLoggedIn, itemController.createItem);
+
+// Seller-only routes for editing/deleting
+router.get('/:id/edit', auth.isLoggedIn, auth.isSeller, itemController.renderEditItemForm);
+router.post('/:id/edit', auth.isLoggedIn, upload.single('image'), auth.isSeller, validator.validateNewItem, itemController.updateItem);
+router.get('/:id/delete', auth.isLoggedIn, auth.isSeller, itemController.deleteItem);
+
+router.post('/:id/delete', auth.isLoggedIn, auth.isSeller, itemController.deleteItem);
+router.delete('/:id/', auth.isLoggedIn, auth.isSeller, itemController.deleteItem);
+
+router.put('/:id', auth.isLoggedIn, auth.isSeller, itemController.updateItem);
+
+router.get('/item/:id', itemController.getItemDetails); 
 router.get('/:id', itemController.getItemDetails);
-router.post('/delete/:id', itemController.deleteItem);
-
-router.get('/signup', (req, res) => {
-  res.render('signup');
-})
-
-router.get('/login', (req, res) => {
-  res.render('login');  
-});
 
 module.exports = router;

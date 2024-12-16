@@ -7,6 +7,9 @@
     <link rel="icon" href="/images/favicon.png"> 
     <link rel="stylesheet" href="/stylesheets/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/themes/light.css">
 </head>
 <body>
     <header>
@@ -15,22 +18,52 @@
         </div>
         <div class="header-center">
             <form action="/items/search" method="GET" class="search-form">
-                <input type="text" name="q" class="search-bar" placeholder="Search" value="<%= searchTerm %>">
+                <input type="text" name="q" class="search-bar" placeholder="Search" value="<%= typeof searchTerm !== 'undefined' ? searchTerm : '' %>">
                 <button type="submit" class="search-button">
                     <i class="fas fa-search"></i>
                 </button>
             </form>            
         </div>
+          
         
         
         <div class="header-right">
             <nav>
-                <a href="/items">Browse</a>
-                <a href="/items/new">Sell</a> 
-                <a href="/signup">Sign Up</a> 
-                <a href="/login">Login</a> 
-            </nav>
+                <nav>
+                    <a href="/items">Browse</a>
+                    <a href="/items/new">Sell</a>
+                    <% if (user) { %>
+                      <a href="/users/profile">My Account</a>
+                      <a href="/users/logout">Log Out</a>
+                    <% } else { %>
+                      <a href="/users/new">Sign Up</a>
+                      <a href="/users/login">Login</a>
+                    <% } %>
+                  </nav>
+                  
         </div>
     </header>
+
+        <!-- Flash Messages Section -->
+<!-- Flash Messages Section -->
+<div class="flash-messages">
+    <% if (messages.error && messages.error.length > 0) { %>
+        <div class="alert alert-danger">
+            <% messages.error.forEach(function(message) { %>
+                <p><%= message %></p>
+            <% }); %>
+        </div>
+    <% } %>
+    <% if (messages.success && messages.success.length > 0) { %>
+        <div class="alert alert-success">
+            <% messages.success.forEach(function(message) { %>
+                <p><%= message %></p>
+            <% }); %>
+        </div>
+    <% } %>
+</div>
+
+
+
 </body>
-</html>
+

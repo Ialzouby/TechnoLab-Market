@@ -1,0 +1,12 @@
+<h1>Offers for <%= item.title %></h1>
+<% offers.forEach(offer => { %>
+    <p>
+        <strong>Amount:</strong> $<%= offer.amount %> 
+        <strong>Status:</strong> <%= offer.status %>
+        <% if (item.active && offer.status === 'pending') { %>
+            <form action="/items/<%= item._id %>/offers/<%= offer._id %>/accept" method="POST">
+                <button type="submit">Accept</button>
+            </form>
+        <% } %>
+    </p>
+<% }); %>

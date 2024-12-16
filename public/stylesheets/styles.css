@@ -296,7 +296,8 @@ main {
 .features {
     display: flex;
     justify-content: space-around;
-    margin: 20px auto;
+    margin-bottom: 70px;
+
 }
 
 .feature-card {
@@ -316,7 +317,7 @@ main {
 }
 
 .intro {
-    margin: 20px auto;
+    margin: 80px auto;
     padding: 20px;
     background-color: #fff;
     border-radius: 10px;
@@ -375,14 +376,33 @@ main {
     font-size: 22px; 
 }
 
-.item h3{ 
-    margin-right: 165px; 
-    color: #000000; 
-    font-size: 17px; 
-    margin-top: 5px; 
-    margin-bottom: 3px; 
-    font-weight: normal
+/* Ensure h3 container doesn't wrap */
+.item h3 {
+    display: flex; /* Align condition and status side by side */
+    justify-content: space-between; /* Push status to the right */
+    align-items: center; /* Vertically align items */
+    margin: 5px 15px; /* Adjust margins for consistent spacing */
+    font-size: 17px; /* Font size for both condition and status */
+    color: #000000;
+    font-weight: normal;
 }
+
+/* Style for available status */
+.status-available {
+    color: #28a745; /* Green for available */
+    font-weight: bold;
+    margin-left: auto; /* Push to the right */
+    padding-left: 10px; /* Add space between condition and status */
+}
+
+/* Style for unavailable status */
+.status-unavailable {
+    color: #dc3545; /* Red for unavailable */
+    font-weight: bold;
+    margin-left: auto; /* Push to the right */
+    padding-left: 10px; /* Add space between condition and status */
+}
+
 
 .item hr {
     border: none; 
@@ -538,37 +558,6 @@ main .h1{
 .item-info p {
     font-size: 1.2em;
     margin: 5px 0;
-}
-
-.item-info button {
-    background-color: #a370f0;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 35px;
-    font-size: 1em;
-    flex: 1; 
-    max-width: 130px; 
-    text-align: center;
-    color: white;
-    font-family: "Poppins", sans-serif;
-    padding: 0.35em 0.6em;
-    font-size: 17px;
-    font-weight: 500;
-    border-radius: 0.9em;
-    border: none;
-    cursor: pointer;
-    display: inline-block;
-    margin-top: 20px;
-    position: relative;
-    box-shadow: inset 0 0 1.6em -0.6em #714da6;
-    overflow: hidden;
-    height: 2.8em;
-    padding-right: 3.5em;
-    transition: all 0.3s ease;
-    text-align: center;
-    vertical-align: middle;
 }
 
 .sell-message {
@@ -807,4 +796,933 @@ p a:hover {
 
 .back-home-button:hover {
     background-color: #0056b3; /* Darker blue on hover */
+}
+
+
+.flash-messages {
+    margin-top: 60px;
+    text-align: center;
+}
+
+.alert {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+
+
+
+/* Centered section container */
+.centered-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px; /* Space between sections */
+    text-align: center;
+}
+
+/* Account Information */
+.account-info {
+    max-width: 600px; /* Control the width */
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Optional shadow */
+}
+
+
+/* Offer Form Section */
+form {
+    margin-top: 10px;
+    width: 500px; 
+    margin-bottom: 15px;
+}
+
+form input[type="number"] {
+    width: calc(100% - 110px);
+    padding: 10px;
+    font-size: 0.95rem;
+    border: 1px solid #d0d0d0;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    margin-bottom: 10px;
+}
+
+form input[type="number"]:focus {
+    border-color: #4C46D3;
+
+}
+
+form button {
+    width: 50%;
+    padding: 10px 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #00d9ff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #08839b;
+}
+
+/* Current Highest Offer */
+.highest-offer {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+/* Sell Message Link */
+.sell-message {
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    text-decoration: none;
+    font-size: 0.95rem;
+    color: #4C46D3;
+    font-weight: bold;
+}
+
+.sell-message:hover {
+    text-decoration: underline;
+}
+
+.view-offers-button {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #007BFF;
+    color: white;
+    font-size: 0.9rem;
+    text-align: center;
+    width: auto; /* Adjust width to fit the content */
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.view-offers-button:hover {
+    background-color: #0056b3;
+}
+
+
+
+/* Table Container */
+.table-container {
+    max-width: 800px;
+    width: 90%; /* Responsive width */
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Optional shadow */
+}
+
+/* Table styling */
+.item-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+
+/* Styling for item preview image in its own column */
+.item-preview {
+    width: 50px; /* Set thumbnail size */
+    height: 50px;
+    object-fit: cover; /* Ensure the image covers the square without distortion */
+    border-radius: 4px; /* Optional: add rounded corners */
+}
+
+
+
+
+
+
+
+
+.item-table .action-buttons-container {
+    min-width: 84px; /* Adjust based on your buttons' width */
+}
+
+
+.action-button svg {
+    width: 16px;
+    height: 16px;
+    fill: white;
+}
+
+/* Styling for item preview image */
+.item-preview {
+    width: 50px; /* Adjust size as needed */
+    height: 50px;
+    object-fit: cover; /* Ensures the image covers the square without distortion */
+    margin-left: 10px; /* Space between the price and image */
+    border-radius: 4px; /* Optional: Add rounded corners */
+    vertical-align: middle; /* Align with the price text */
+}
+
+.edit-button {
+    background-color: #73c5ff; /* Light blue */
+}
+.edit-button:hover {
+    background-color: #bbdefb;
+}
+
+.delete-button {
+    background-color: #ff96b9; /* Light pink */
+}
+.delete-button:hover {
+    background-color: #f8bbd0;
+}
+
+.highest-offer {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+
+
+
+/* Account Info Section */
+.account-info-section {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.account-info-card {
+    display: inline-block;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 500px;
+    text-align: left;
+}
+
+/* Items Table Styling */
+.items-table-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.items-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.items-table th, .items-table td {
+    text-align: center;
+    padding: 12px;
+    border-top: 1px solid #ddd;
+    vertical-align: middle;
+}
+
+.items-table td {
+    text-align: center; /* Horizontally center content */
+    vertical-align: middle; /* Vertically center content */
+}
+
+.items-table th:nth-child(6), .items-table td:nth-child(6) {
+    width: 120px; /* Adjust the width as needed */
+    max-width: 120px; /* Prevent from expanding */
+}
+
+
+.item-thumbnail {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* No Items Message */
+.no-items-message {
+    text-align: center;
+    font-size: 1rem;
+    color: #555;
+    margin-top: 20px;
+}
+
+
+
+.item-action-btn {
+    width: 32px; /* Adjust as needed */
+    height: 32px; /* Adjust as needed */
+    padding: 0; /* Remove extra padding */
+    border: none; /* No border */
+    border-radius: 4px; /* Optional: Rounded corners */
+    display: flex; /* Flexbox to center icon inside the button */
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f4;
+    transition: background-color 0.3s ease; /* Optional hover effect */
+}
+
+
+
+.item-action-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+
+
+/* View Offers Button */
+.view-offers-btn {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.view-offers-btn:hover {
+    background-color: #0056b3;
+}
+
+
+
+
+/* Update these styles in your CSS file */
+.action-buttons-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
+}
+
+.action-button {
+    width: 32px;
+    height: 32px;
+    padding: 6px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.delete-form {
+    margin: 0;
+    padding: 0;
+    display: inline-flex;
+}
+
+.edit-button svg {
+    width: 20px;
+    height: 20px;
+    color: #4CAF50;
+}
+
+.delete-button svg {
+    width: 20px;
+    height: 20px;
+    color: #f44336;
+}
+
+/* Reset form styles */
+.delete-form {
+    background: none;
+    border: none;
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
+}
+
+.item-actions-container {
+    display: flex; /* Use Flexbox for centering */
+    justify-content: center; /* Center buttons horizontally */
+    align-items: center; /* Center buttons vertically */
+    gap: 8px; /* Optional: Space between buttons */
+    margin-left: 30px;
+}
+
+/* Edit Button */
+.edit-btn {
+    background-color: #4CAF50; /* Green for edit */
+    color: white;
+    width: 170px; 
+}
+
+.edit-btn:hover {
+    background-color: #388E3C; /* Darker green on hover */
+}
+
+/* Delete Button */
+.delete-item-btn {
+    background-color: #f44336; /* Red for delete */
+    color: white;
+}
+
+.delete-item-btn:hover {
+    background-color: #d32f2f; /* Darker red on hover */
+}
+
+/* View Offers Button */
+.view-offers-btn {
+    background-color: #007BFF; /* Blue for view offers */
+    color: white;
+}
+
+.view-offers-btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+
+.offers-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+.offers-header {
+    font-size: 24px;
+    color: #444;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.offers-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.offers-table thead {
+    background-color: #007BFF;
+    color: #fff;
+}
+
+.offers-table th, .offers-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.offers-table th {
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.offers-table tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+.offers-table td {
+    font-size: 14px;
+}
+
+.offers-action-btn {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.offers-action-btn.accept-btn {
+    background-color: #28a745;
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+.offers-action-btn.accept-btn:hover {
+    background-color: #218838;
+}
+
+.offers-action-btn.accept-btn:disabled {
+    background-color: #c8e6c9;
+    cursor: not-allowed;
+}
+
+button.btn-disabled {
+    background-color: #ccc; /* Light  background */
+    color: #666; /* Darker gray text */
+    cursor: not-allowed; /* Indicates the button cannot be clicked */
+    border: 1px solid #ccc; /* Matches the background */
+}
+
+.item-unavailable {
+    background-color: #ffdddd; /* Light red background */
+    color: #d32f2f; /* Bold red text */
+    border: 1px solid #d32f2f; /* Red border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 15px; /* Spacing inside the box */
+    font-size: 16px; /* Readable text */
+    font-weight: bold; /* Bold text */
+    text-align: center; /* Center alignment */
+    margin-top: 20px; /* Space above the element */
+    margin-bottom: 15px; /* Space below the element (optional) */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+
+/* Entire page wrapper */
+.page-wrapper {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    min-height: 100vh; /* Full viewport height */
+    background-color: #eaf6ff; /* Light background */
+    padding-top: 40px; /* Add padding to prevent overlap with the header */
+}
+
+/* Content block container */
+.content-block {
+    display: flex;
+    flex-direction: column;
+    width: 90%; /* Width relative to viewport */
+    max-width: 1200px; /* Limit the max width */
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 20px;
+}
+
+/* Profile header */
+.profile-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile-header h1 {
+    font-size: 2.5rem;
+    color: #333;
+}
+
+/* Main content area */
+.main-content {
+    display: flex;
+    justify-content: space-between; /* Spread sections horizontally */
+    align-items: flex-start; /* Align items to the top */
+    gap: 20px; /* Space between sections */
+    padding: 0px 0;
+}
+
+/* Left content (Listed Items) */
+.left-section {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    flex: 1; /* Takes up remaining space */
+    max-width: 300px; /* Prevent the section from growing too wide */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Right content (Reviews and Add a Review) */
+.right-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Add a Review block */
+.add-review-block {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.add-review-block h2 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Reviews block */
+.reviews-block {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.reviews-block h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* List styles */
+.list-container {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.list-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.list-item a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.list-item a:hover {
+    text-decoration: underline;
+}
+
+/* Compact star rating */
+.star-rating {
+    display: flex;
+    justify-content: center;
+    gap: 3px; /* Smaller gap between stars */
+    margin-bottom: 10px;
+}
+
+.star-rating input {
+    display: none;
+}
+
+.star-rating label {
+    font-size: 1.4rem; /* Smaller stars */
+    color: #ddd;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.star-rating input:checked ~ label,
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+    color: #ffc107;
+}
+
+/* Compact form elements */
+.review-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.review-form textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: none;
+    height: 60px; /* Smaller height for the text box */
+}
+
+.submit-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 10px; /* Smaller button */
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 8px;
+}
+
+.submit-button:hover {
+    background-color: #218838;
+}
+
+
+
+.home-main {
+    height: calc(100vh - 160px); /* Fixed height accounting for header/footer */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center vertically */
+    align-items: center;
+    gap: 2rem;
+    padding: 0 2rem; /* Add horizontal padding */
+    margin-top: -20px; /* Adjust if needed to fine-tune vertical position */
+}
+
+.home-hero {
+    width: 100%;
+    max-width: 800px;
+}
+
+.hero-content {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    text-align: center;
+}
+
+.hero-title {
+    font-size: 1.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero-description {
+    font-size: 1rem;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+}
+
+.feature-grid {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 1rem;
+}
+
+.feature-item {
+    flex: 1;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.feature-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.led-border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 5px solid rgba(0, 213, 255, 0.898);
+    border-radius: 10px;
+    box-sizing: border-box;
+    animation: expand-border 3s forwards;
+    clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+    box-shadow: 0 0 20px 5px rgba(0, 80, 129, 0.7); /* Glow effect */
+
+}
+
+@keyframes expand-border {
+    0% {
+        clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+    }
+    25% {
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+    50% {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 0);
+    }
+    75% {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+    100% {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+}
+
+
+.feature-image {
+    width: 80px; /* Slightly smaller images */
+    height: auto;
+    margin-bottom: 0.5rem;
+}
+
+.feature-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.feature-description {
+    font-size: 1rem;
+    line-height: 1.3;
+    color: #333;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .feature-grid {
+        flex-direction: column;
+    }
+
+    .feature-item {
+        max-width: 100%;
+    }
+}
+
+.offer-button {
+    background-color: #a370f0; /* Same purple as your other buttons */
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-family: "Poppins", sans-serif;
+    transition: background-color 0.3s ease;
+}
+
+.offer-button:hover {
+    background-color: #8a5cd9; /* Slightly darker on hover */
+}
+
+/* Add to your stylesheet */
+.tippy-box {
+    background-color: white;
+    color: #333;
+    padding: 8px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 2px solid #a370f0;
+    font-family: "Poppins", sans-serif;
+}
+
+.tippy-arrow {
+    color: #a370f0;
+}
+
+.tippy-box[data-theme~='light'] {
+    background-color: white;
+    color: #333;
+}
+
+.items-table span {
+    color: #d32f2f;
+    margin-right: 10px;
+}
+
+.filter-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Vertically center the items */
+    margin-bottom: 20px;
+}
+
+.filter-form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.filter-form select,
+.filter-form button {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.filter-form select:focus,
+.filter-form button:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+.filter-form button {
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.filter-form button:hover {
+    background-color: #0056b3;
+}
+
+.complete-payment-container {
+    margin-top: 20px;
+    max-height: 40%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.complete-payment-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.payment-summary {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.payment-summary p {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #555;
+}
+
+.payment-form {
+    text-align: center;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3;
 }

@@ -1,0 +1,122 @@
+<%- include('../partials/header') %>
+
+<main>
+    <!-- Account Information Section -->
+    <section class="account-info-section">
+        <div class="account-info-card">
+            <h2>Account Information</h2>
+            <p><strong>Name:</strong> <%= user.firstName %> <%= user.lastName %></p>
+            <p><strong>Email:</strong> <%= user.email %></p>
+        </div>
+    </section>
+
+    <hr>
+
+    <!-- User's Items Section -->
+    <section class="user-items-section">
+        <div class="items-table-container">
+            <h2>Your Items</h2>
+            <% if (items && items.length > 0) { %>
+                <table class="items-table">
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Item</th>
+                            <th>Condition</th>
+                            <th>Price</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                            <th>Offers</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% items.forEach(item => { %>
+                            <tr>
+                                <td>
+                                    <img src="<%= item.image %>" alt="<%= item.title %> preview" class="item-thumbnail">
+                                </td>
+                                <td><%= item.title %></td>
+                                <td><%= item.condition %></td>
+                                <td>$<%= item.price.toFixed(2) %></td>
+                                <td><%= item.active ? 'Active' : 'Not Active' %></td>
+                                <td>
+                                    <div class="item-actions-container">
+                                        <button class="item-action-btn edit-btn" onclick="window.location.href='/items/<%= item.id %>/edit'" type="button">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                                <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1.003 1.003 0 0 0 0-1.42l-2.34-2.34a1.003 1.003 0 0 0-1.42 0L15.13 4.46l3.75 3.75 1.83-1.83z"/>
+                                            </svg>
+                                        </button>
+                                        <form class="delete-form" onsubmit="return confirm('Are you sure you want to delete this item?')" action="/items/<%= item.id %>/delete" method="POST">
+                                            <button class="item-action-btn delete-item-btn" type="submit">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path d="M16 9v10H8V9h8m-1.5-6h-5l-1 1H5v2h14V4h-4.5l-1-1z"/>
+                                                </svg>
+                                            </button>
+                                        </form>
+                                    </div>
+                                </td>
+                                <td>
+                                    <button class="view-offers-btn" onclick="window.location.href='/items/<%= item.id %>/offers'" type="button">
+                                        View Offers
+                                    </button>
+                                </td>
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            <% } else { %>
+                <p class="no-items-message">You haven't listed any items yet.</p>
+            <% } %>
+        </div>
+        
+    </section>
+
+<!-- User's Offers Section -->
+<section class="user-items-section">
+    <div class="items-table-container">
+        <h2>Your Offers</h2>
+        <% if (offers && offers.length > 0) { %>
+            <table class="items-table">
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Item</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% offers.forEach(offer => { %>
+                        <tr>
+                            <td>
+                                <img src="<%= offer.item.image %>" alt="<%= offer.item.title %> preview" class="item-thumbnail">
+                            </td>
+                            <td><%= offer.item.title %></td>
+                            <td>$<%= offer.amount.toFixed(2) %></td>
+                            <td><%= offer.status %></td>
+                            <td>
+                                <% if (offer.status === 'pending') { %>
+                                    <button class="view-offers-btn" onclick="window.location.href='/items/<%= offer.item._id %>'" type="button">
+                                        Increase Offer
+                                    </button>
+                                <% } else if (offer.status === 'accepted') { %>
+                                    <button class="view-offers-btn" onclick="window.location.href='/offers/<%= offer._id %>/completePayment'" type="button">
+                                        Complete Payment
+                                    </button>
+                                <% } else { %>
+                                    <span>No actions available</span>
+                                <% } %>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p class="no-items-message">You haven't made any offers yet.</p>
+        <% } %>
+    </div>
+</section>
+</main>
+
+<%- include('../partials/footer') %>

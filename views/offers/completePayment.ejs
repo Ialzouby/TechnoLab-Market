@@ -1,0 +1,15 @@
+<%- include('../partials/header') %>
+
+<main class="complete-payment-container">
+    <h2>Complete Your Payment</h2>
+    <div class="payment-summary">
+        <p><strong>Item:</strong> <%= offer.item.title %></p>
+        <p><strong>Amount:</strong> $<%= offer.amount.toFixed(2) %></p>
+    </div>
+
+    <form action="#" >
+        <button type="submit" class="btn btn-primary">Pay Now</button>
+    </form>
+</main>
+
+<%- include('../partials/footer') %>

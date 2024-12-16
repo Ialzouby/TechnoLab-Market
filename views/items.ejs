@@ -1,18 +1,53 @@
 <%- include('partials/header') %>
 
 <main>
-    <h1>Browse Our 3D Printed Items</h1>
+    <div class="filter-container">
+        <h1>Browse Our 3D Printed Items</h1>
+        
+        <!-- Filter Form -->
+        <form method="GET" action="/items" class="filter-form">
+            <select name="category">
+                <option value="">All Categories</option>
+                <option value="PLA">PLA</option>
+                <option value="ABS">ABS</option>
+                <option value="PETG">PETG</option>
+                <option value="Nylon">Nylon</option>
+                <option value="TPU">TPU</option>
+
+            </select>
+
+            <select name="condition">
+                <option value="">All Conditions</option>
+                <option value="New">New</option>
+                <option value="Like-New">Like-New</option>
+                <option value="Good">Good</option>
+                <option value="Fair">Fair</option>
+                <option value="Poor">Poor</option>
+
+            </select>
+
+            <button type="submit">Filter</button>
+            <button type="button" onclick="window.location.href='/items'">Reset</button> 
+
+        </form>
+    </div>
+
     <div class="items-container">
         <% if (items && items.length > 0) { %>
             <% items.forEach(item => { %>
                 <a href="/items/<%= item.id %>" class="item"> 
                     <img src="<%= item.image %>" alt="<%= item.title %>">
                     <h2><%= item.title %></h2>
-                    <h3><%= item.condition %></h3>
+                    <h3>
+                        <%= item.condition %>
+                        <span class="<%= item.active ? 'status-available' : 'status-unavailable' %>">
+                            <%= item.active ? 'Available' : 'Unavailable' %>
+                        </span>
+                    </h3>
                     <hr>
                     <p>
                         <span>$<%= item.price.toFixed(2) %></span> 
-                        <span><%= item.offersCount || 2 %> offers</span> 
+                        <span><%= item.offersCount %> <%= item.offersCount === 1 ? 'offer' : 'offers' %></span>
                     </p>
                 </a>
             <% }) %>
@@ -21,7 +56,5 @@
         <% } %>
     </div>
 </main>
-
-
 
 <%- include('partials/footer') %>

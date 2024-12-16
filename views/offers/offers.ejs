@@ -1,0 +1,34 @@
+<%- include('../partials/header') %>
+
+<div class="offers-container">
+    <h1 class="offers-header">Offers for <%= item.title %></h1>
+
+    <table class="offers-table">
+        <thead>
+            <tr>
+                <th>Buyer</th>
+                <th>Amount</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% offers.forEach(offer => { %>
+                <tr>
+                    <td><%= offer.buyer.firstName %> <%= offer.buyer.lastName %></td>
+                    <td>$<%= offer.amount.toFixed(2) %></td>
+                    <td><%= offer.status %></td>
+                    <td>
+                        <% if (item.active && offer.status !== 'accepted') { %>
+                            <form method="POST" action="/items/<%= item._id %>/offers/<%= offer._id %>/accept">
+                                <button type="submit" class="offers-action-btn accept-btn">Accept</button>
+                            </form>
+                        <% } %>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+
+<%- include('../partials/footer') %>

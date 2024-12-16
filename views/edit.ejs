@@ -2,18 +2,26 @@
 
 <main>
     <h1>Edit Item</h1>
-    <form class="update-form" action="/items/edit/<%= item.id %>" method="POST" enctype="multipart/form-data">
+    <form class="update-form" action="/items/<%= item.id %>/edit" method="POST" enctype="multipart/form-data">
         <label for="title">Title:</label>
         <input type="text" id="title" name="title" value="<%= item.title %>" required>
 
-        <label for="seller">Seller:</label>
-        <input type="text" id="seller" name="seller" value="<%= item.seller %>" required>
 
         <label for="condition">Condition:</label>
         <select id="condition" name="condition" required>
-            <option value="New" <%= item.condition === 'New' ? 'selected' : '' %>>New</option>
-            <option value="Used" <%= item.condition === 'Used' ? 'selected' : '' %>>Used</option>
+            <% conditionOptions.forEach(option => { %>
+                <option value="<%= option %>" <%= item.condition === option ? 'selected' : '' %>><%= option %></option>
+            <% }); %>
         </select>
+
+
+        <label for="category">Category:</label>
+        <select id="category" name="category" required>
+            <% categoryOptions.forEach(option => { %>
+                <option value="<%= option %>" <%= item.category === option ? 'selected' : '' %>><%= option %></option>
+            <% }); %>
+        </select>
+        
 
         <label for="price">Price:</label>
         <input type="number" id="price" name="price" step="0.01" value="<%= item.price %>" required>

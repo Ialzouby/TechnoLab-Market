@@ -13,18 +13,31 @@
                     <label for="title">Title:</label>
                     <input type="text" id="title" name="title" required>
 
-                    <label for="seller">Seller Name:</label>
-                    <input type="text" id="seller" name="seller" required>
 
-                    <label for="condition">Condition:</label>
-                    <select id="condition" name="condition" required>
-                        <option value="" disabled selected>Select a condition</option>
-                        <option value="New">New</option>
-                        <option value="Like-New">Like New</option>
-                        <option value="Good">Good</option>
-                        <option value="Fair">Fair</option>
-                        <option value="Poor">Poor</option>
-                    </select>
+                    <div class="dropdown-container">
+                        <div class="dropdown">
+                            <label for="condition">Condition:</label>
+                            <select id="condition" name="condition" required>
+                                <option value="" disabled selected>Select a condition</option>
+                                <option value="New">New</option>
+                                <option value="Like-New">Like New</option>
+                                <option value="Good">Good</option>
+                                <option value="Fair">Fair</option>
+                                <option value="Poor">Poor</option>
+                            </select>
+                        </div>
+                        <div class="dropdown">
+                            <label for="category">Category:</label>
+                            <select id="category" name="category" required>
+                                <option value="" disabled selected>Select a category</option>
+                                <option value="PLA">PLA</option>
+                                <option value="ABS">ABS</option>
+                                <option value="PETG">PETG</option>
+                                <option value="Nylon">Nylon</option>
+                                <option value="TPU">TPU</option>
+                            </select>
+                        </div>
+                    </div>
               
                     <label for="price">Price:</label>
                     <input type="number" id="price" name="price" step="0.01" required>
