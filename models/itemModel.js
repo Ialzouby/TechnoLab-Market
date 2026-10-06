@@ -1,26 +1,20 @@
-const mongoose = require('mongoose');
-const { escape } = require('validator');
+const { defineModel } = require('../data/store');
 
-const itemSchema = new mongoose.Schema({
-  title: { type: String, required: [true, 'Title is required'], trim: true },
-  seller: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
-  condition: { type: String, enum: ['New', 'Like-New', "Good", "Fair", "Poor"], required: true },
-  price: { type: Number, required: true, min: 0.01 },
-  details: { type: String, required: true, trim: true },
-  image: { type: String, default: 'default.jpg' },
-  active: { type: Boolean, default: true },
-  totalOffers: { type: Number, default: 0 },
-  highestOffer: { type: Number, default: 0 },
-  category: { type: String, enum: ['PLA', 'ABS', 'PETG', 'Nylon', 'TPU'], required: true }
+const Item = defineModel('Item', {
+  refs: { seller: 'User' },
+  numbers: ['price', 'totalOffers', 'highestOffer'],
+  required: ['title', 'condition', 'price', 'details', 'category'],
+  enums: {
+    condition: ['New', 'Like-New', 'Good', 'Fair', 'Poor'],
+    category: ['PLA', 'ABS', 'PETG', 'Nylon', 'TPU'],
+  },
+  defaults: {
+    image: 'default.jpg',
+    active: true,
+    totalOffers: 0,
+    highestOffer: 0,
+    createdAt: () => new Date(),
+  },
 });
 
-itemSchema.pre('save', function(next) {
-  this.title = escape(this.title);
-  this.details = escape(this.details);
-  next();
-});
-
-const Item = mongoose.model('Item', itemSchema);
 module.exports = Item;
-
-  

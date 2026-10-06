@@ -21,9 +21,10 @@
 <ul>
     <li>🛒 <strong>Product Listings</strong>: View detailed information about available products, including images, descriptions, and prices.</li>
     <li>🔍 <strong>Search Functionality</strong>: Easily find products using the search bar.</li>
-    <li>🔐 <strong>User Authentication</strong>: Secure user registration and login system.</li>
-    <li>🛍️ <strong>Shopping Cart</strong>: Add products to your cart and proceed to checkout.</li>
-    <li>📦 <strong>Order Management</strong>: Track your orders and view order history.</li>
+    <li>🔐 <strong>User Authentication</strong>: Registration and login, with passwords hashed using bcrypt.</li>
+    <li>🏷️ <strong>Sell Your Own Prints</strong>: List an item with a photo, condition, material and price.</li>
+    <li>💰 <strong>Offers</strong>: Place offers on other sellers' listings; sellers review and accept them.</li>
+    <li>⭐ <strong>Seller Profiles &amp; Reviews</strong>: Browse a seller's listings and leave a star rating.</li>
 </ul>
 
 <h2>Tech Stack</h2>
@@ -33,7 +34,6 @@
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JavaScript" width="40" height="40"/>
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" alt="Node.js" width="40" height="40"/>
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original.svg" alt="Express.js" width="40" height="40"/>
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg" alt="MongoDB" width="40" height="40"/>
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/ejs/ejs-original.svg" alt="EJS" width="40" height="40"/>
 </p>
 
@@ -49,23 +49,34 @@
     <li>📦 <strong>Install Dependencies</strong>:
         <pre><code>npm install</code></pre>
     </li>
-    <li>⚙️ <strong>Set Up Environment Variables</strong>:
-        <p>Create a <code>.env</code> file in the root directory and add your MongoDB connection string:</p>
-        <pre><code>MONGODB_URI=your_mongodb_connection_string</code></pre>
-    </li>
     <li>🚀 <strong>Start the Application</strong>:
         <pre><code>npm start</code></pre>
-        <p>The application will run at <code>http://localhost:3000</code>.</p>
+        <p>The application will run at <code>http://localhost:3000</code>. No database setup required.</p>
     </li>
 </ol>
+
+<h2>Demo Data</h2>
+<p>The app runs entirely on in-memory sample data, loaded from <code>data/seed.js</code> when the server starts: 4 sellers, 9 listings, offers and reviews. There is no database to configure, and nothing to connect to.</p>
+
+<p>Because the data lives in memory, <strong>anything you add during a session disappears when the server restarts</strong>. That includes new accounts, listings and offers. Restarting is how you reset the demo back to its starting state.</p>
+
+<p>Sign in with any of these accounts — the password for all of them is <code>password123</code>:</p>
+<ul>
+    <li><code>issam@technolab.com</code> — has listings, offers placed, and one accepted offer ready to pay</li>
+    <li><code>maya@technolab.com</code></li>
+    <li><code>diego@technolab.com</code></li>
+    <li><code>priya@technolab.com</code></li>
+</ul>
+
+<p>Uploaded images are written to <code>public/images</code>. On a hosted platform with an ephemeral filesystem, those uploads are also lost on restart.</p>
 
 <h2>Usage</h2>
 <ul>
     <li>🏠 <strong>Home Page</strong>: Browse featured products.</li>
     <li>📄 <strong>Product Page</strong>: Click on a product to view its details.</li>
-    <li>🔍 <strong>Search</strong>: Use the search bar to find specific products.</li>
-    <li>🛒 <strong>Cart</strong>: Add products to your cart and proceed to checkout.</li>
-    <li>👤 <strong>User Account</strong>: Register or log in to manage your orders.</li>
+    <li>🔍 <strong>Search &amp; Filter</strong>: Search by keyword, or filter by material and condition.</li>
+    <li>💰 <strong>Make an Offer</strong>: Log in and bid on any active listing you don't own.</li>
+    <li>👤 <strong>My Account</strong>: Manage your listings, and track the offers you've placed.</li>
 </ul>
 
 <h2>Contributing</h2>

@@ -1726,3 +1726,33 @@ button.btn-disabled {
 .btn:hover {
     background-color: #0056b3;
 }
+/* Demo account hint on the login page */
+.demo-credentials {
+    margin-top: 16px;
+    padding: 14px 16px;
+    background-color: #ffffff;
+    border: 1px dashed #b9b9b9;
+    border-radius: 8px;
+    text-align: left;
+    font-size: 0.85rem;
+    color: #444;
+    max-width: 320px;
+}
+
+.demo-credentials strong {
+    display: block;
+    margin-bottom: 6px;
+    color: #222;
+}
+
+.demo-credentials p {
+    margin: 6px 0 0;
+    line-height: 1.5;
+}
+
+.demo-credentials code {
+    background-color: #eeeeee;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: monospace;
+}

@@ -2,8 +2,8 @@ const Offer = require('../models/offerModel');
 const Item = require('../models/itemModel');
 
 exports.makeOffer = async (req, res) => {
+    const itemId = req.params.id;
     try {
-        const itemId = req.params.id;
         const item = await Item.findById(itemId);
 
         if (!item || !item.active) {

@@ -148,7 +148,7 @@ exports.login = [
 
         // Check if the user exists and if the password is valid
         if (user && await bcrypt.compare(password, user.password)) {
-            req.session.userId = user._id;
+            req.session.userId = user.id;
             req.flash('success', 'Login successful!');
 
             // Ensure the session is saved before redirecting

@@ -1,6 +1,6 @@
 const path = require('path');
 const multer = require('multer');
-const mongoose = require('mongoose');
+const { isValidId } = require('../data/store');
 const Item = require('../models/itemModel');
 const Offer = require('../models/offerModel');
 
@@ -21,7 +21,7 @@ exports.getItemDetails = async (req, res) => {
   try {
     const itemId = req.params.id;
 
-    if (!mongoose.Types.ObjectId.isValid(itemId)) {
+    if (!isValidId(itemId)) {
       return res.status(400).render('error', { message: '400 Error - Invalid Item ID' });
     }
 
@@ -137,7 +137,7 @@ exports.deleteItem = async (req, res) => {
       const itemId = req.params.id;
       const referrer = req.get('Referrer') || '';
       
-      if (!mongoose.Types.ObjectId.isValid(itemId)) {
+      if (!isValidId(itemId)) {
           req.flash('error', 'Invalid Item ID');
           return res.redirect('back');
       }
@@ -164,7 +164,7 @@ exports.deleteItem = async (req, res) => {
       if (referrer.includes('/profile')) {
           res.redirect('/users/profile');
       } else {
-          res.redirect('/users/items');
+          res.redirect('/items');
       }
       
   } catch (error) {
@@ -225,6 +225,10 @@ exports.searchItems = async (req, res) => {
       $and: regexArray,
       active: true
     });
+
+    for (let item of filteredItems) {
+      item.offersCount = await Offer.countDocuments({ item: item._id });
+    }
 
     // Check if any items match
     if (filteredItems.length === 0) {
